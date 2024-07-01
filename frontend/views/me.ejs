@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de <%= cv.name %></title>
+<link rel="icon" type="image" href="/assets/logo-black.png" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <link rel="stylesheet" href="/css/profile.css">
+    <!-- Estilos para el texto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="mainContainer">
+        <div class="header">
+            <a href="/feed" class="button btn btn-primary">Feed</a>
+            <div class="headerLogo">
+                <a href="/feed" style="background-color: transparent;">
+                    <h1 style="color: #9fbd4e;">Chimp</h1><h1>Job</h1>
+                </a>
+            </div>
+            <a href="/logout" class="button btn btn-primary">Logout</a>
+        </div>
+        <div class="profile profile-container">
+            <div class="profile">
+                <div style="width: 30%;">
+                    <img src="/assets/logos/user-icon.svg"  class="case" alt="case">
+                </div>
+                <div class="employerInfo">
+                    <div class="name-space">
+                        <h1><%= cv.name %></h1>
+                        <a href="/update/<%=cv.id %>" class="btn btn-success" >Actualizar CV</a>
+                    </div>
+                    <p> <%= cv.description %></p>
+                </div>
+            </div>
+            <div class="detail-profile-divided">
+                <div class="detail">
+                    <h3 class="item h3-green">Datos de Contacto</h3>
+                    <div class="spaced-frame item">
+                        <p><strong>Teléfono:</strong> <%= cv.phone %></p>
+                        <p><strong>Email:</strong> <%= cv.email %></p>
+                    </div>
+                    <h3 class="item h3-green">Educación</h3>
+                    <div class="spaced-frame item">
+                        <ul>
+                            <% Object.keys(cv.education).forEach(key => { %>
+                                <li><strong><%= key %>:</strong> <%= cv.education[key] %></li>
+                            <% }); %>
+                        </ul>
+                    </div>
+                </div>
+                <div class="detail">
+                    <h3 class="item h3-green">Historial Laboral</h3>
+                    <div class="spaced-frame item">
+                        <ul>
+                            <% Object.keys(cv.workHistory).forEach(key => { %>
+                                <li><strong><%= key %>:</strong> <%= cv.workHistory[key] %></li>
+                            <% }); %>
+                        </ul>
+                    </div>
+                    <h3 class="item h3-green">Habilidades</h3>
+                    <div class="spaced-frame item">
+                        <ul>
+                            <% Object.keys(cv.skills).forEach(key => { %>
+                                <li><strong><%= key %>:</strong> <%= cv.skills[key] %></li>
+                            <% }); %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="conectedWith">
+                <h2 class="h2_">Empresas conectadas</h2>
+
+                <ul id="connectedUsersList" class="connectedUsersList">
+                    <% connectedEmployers.forEach(user => { %>
+                        <li>
+                            <div class="userConected">
+                                <div style="width: 200px;">
+                                    <img src="/assets/logos/case-black.svg" width="80%" height="auto" class="case" alt="case">
+                                </div>
+                                <div>
+                                    <h3><%= user.employer.companyName %></h3>
+                                    <p><strong>Industria:</strong> <%= user.employer.industry %></p>
+                                    <p><%= user.employer.description %></p>
+                                </div>
+                            </div>
+                        </li>
+                    <% }); %>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="text-center py-4">
+        <p>&copy; 2024 Banana Inc. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

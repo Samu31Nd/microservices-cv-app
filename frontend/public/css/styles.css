@@ -1,0 +1,33 @@
+body {
+  padding-top: 20px;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+footer {
+  background-color: #f8f9fa;
+  margin-top: 50px;
+  padding: 20px 0;
+}
+
+.headerLogo a{
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.headerLogo h1{
+  font-family: 'Darumadrop One', serif;
+  font-size: 5rem;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+
+.mainContainer {
+  margin-bottom: 100px;
+}

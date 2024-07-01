@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed de Usuarios</title>
+<link rel="icon" type="image" href="/assets/logo-black.png" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+
+        <div class="header">
+            <div class="headerLogo">
+                <a href="/">
+                    <h1 style="color: #9fbd4e;" >Chimp</h1><h1>Job</h1>
+                </a>
+            </div>
+        </div>
+
+        <header class="my-5 text-center">
+            <h1>Feed de Empresas</h1>
+            <a href="/me" class="btn btn-success ml-2">Perfil</a>
+        </header>
+        
+        <section class="my-5">
+            <h2>Empresas registradas</h2>
+            <div class="row">
+                <% employers.forEach(user => { %>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= user.companyName %></h5>
+                                <p class="card-text"><strong>Industria:</strong> <%= user.industry %></p>
+                                <p class="card-text"><strong>Descripción:</strong> <%= user.description %></p>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </section>
+    </div>
+
+    <footer class="text-center py-4">
+        <p>&copy; 2024 Banana Inc. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

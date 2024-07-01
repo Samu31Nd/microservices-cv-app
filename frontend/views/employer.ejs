@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Empresa - <%= employer.companyName %></title>
+<link rel="icon" type="image" href="/assets/logo-black.png" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/profile.css">
+    <!-- Estilos para el texto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="mainContainer">
+        <div class="header">
+            <a href="/feed" class="button btn btn-primary">Feed</a>
+            <div class="headerLogo">
+                <a href="/feed" style="background-color: transparent;">
+                    <h1 style="color: #9fbd4e;">Chimp</h1><h1>Job</h1>
+                </a>
+            </div>
+            <a href="/logout" class="button btn btn-primary">Logout</a>
+        </div>
+
+        <div class="profile-container">
+            <div class="profile">
+                <div style="width: 30%;">
+                    <img src="/assets/logos/case-black.svg" width="80%" height="auto" class="case" alt="case">
+                </div>
+                <div class="employerInfo">
+                    <h1><%= employer.companyName %></h1>
+                    <div>
+                        <p>Industria</p>
+                        <h2 > <%= employer.industry %></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="description">
+                <h3>Descripción</h3>
+                <p class="card-text"><%= employer.description %></p>
+            </div>
+
+            <div class="conectedWith">
+                <h2 class="h2_">Personas conectadas</h2>
+
+                <ul id="connectedUsersList" class="connectedUsersList">
+                    <% connectedUsers.forEach(user => { %>
+                        <li>
+                            <div class="userConected">
+                                <div style="width: 200px;">
+                                    <img src="/assets/logos/user-icon.svg" width="80%" height="auto" class="case" alt="case">
+                                </div>
+                                <div style="width: 60%;">
+                                    <h3><%= user.employee.name %></h3>
+                                    <p><%= user.employee.cv.description %></p>
+                                </div>
+                                <a href="http://localhost:3001/pdf/<%= user.employee.cvId %>.pdf" class="button btn btn-primary">Ver CV</a>
+                            </div>
+                        </li>
+                    <% }); %>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-4">
+        <p>&copy; 2024 Banana Inc. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
